@@ -1,0 +1,79 @@
+.registration__container {
+     height: 70vh;     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+     /* Центрирование заголовка */
+}
+
+.registration__form {
+     width: 340px;
+     height: 340px;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     flex-direction: column;
+     border: 1px solid #e0e0e0;
+     transition: border-color 0.3s ease;
+     border-radius: 8px;
+     padding: 5% 1%;
+     color: #222222;
+}
+
+.registration__form>h2 {
+     font-weight: 300;
+     font-size: 25px;
+}
+
+.registration__form>input {
+     width: 300px;
+     height: 40px;
+     border: none;
+     outline: none;
+     border-radius: 8px;
+     border: 1px solid #e0e0e0;
+     transition: border-color 0.3s ease;
+     font-size: 19px;
+     color: #222222;
+     text-indent: 8px;
+}
+
+.registration__form>input::placeholder {
+     color: #e0e0e0;
+     text-indent: 8px;
+     font-size: 19px;
+}
+
+.registration__button {
+     width: 280px;
+     height: 40px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border: none;
+     outline: none;
+     border-radius: 8px;
+     cursor: pointer;
+     color: white;
+     background-color: darkred;
+     font-size: 19px;
+     transform: scale(.98);
+     transition: background-color ease-in .2s, transform ease-in .2s;
+}
+
+.registration__button:hover {
+     background-color: rgb(104, 4, 4);
+     transform: scale(0.98);
+}
+
+.registration__button:active {
+     background-color: rgb(98, 5, 5);
+     transform: scale(.99);
+}
+
+.registration__reset>a {
+     color: #e0e0e0;
+     font-size: 19px;
+     text-align: center;
+     /* Центрирование текста */
+}
