@@ -1,0 +1,67 @@
+.footer__container {
+     /* position: fixed;
+     bottom: 0;
+     left: 0; */
+     width: 100%;
+     background-color: darkred;
+     color: white;
+     display: flex;
+     justify-content: space-between;
+     padding: 20px;
+     flex-wrap: wrap;
+     z-index: 1000;
+}
+
+.footer__section {
+     flex: 1;
+     padding: 10px;
+}
+
+.footer__company-info,
+.footer__links,
+.footer__contacts {
+     margin-bottom: 15px;
+}
+
+.footer__links a,
+.footer__social-media a,
+.footer__contacts > a 
+{
+     display: block;
+     color: white;
+     margin-bottom: 5px;
+     text-decoration: none;
+     transition: color 0.3s;
+}
+
+.footer__links a:hover,
+.footer__social-media a:hover,
+.footer__contacts > a 
+{
+     color: gray;
+     /* Цвет выделения при наведении */
+}
+
+h4 {
+     margin-bottom: 10px;
+     font-size: 18px;
+     font-weight: 400;
+     color: white;
+     /* Акцентный цвет заголовков */
+}
+
+.footer__social-media {
+     display: flex;
+     flex-direction: column;
+     gap: 10px;
+}
+
+.footer__contacts p {
+     margin: 0;
+     font-size: 15px;
+}
+@media (max-width: 768px) {
+     .footer__container {
+          display: none;
+     }
+}

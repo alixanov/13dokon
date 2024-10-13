@@ -13,6 +13,9 @@ import Cabinet from '../components/cabinet/Cabinet';
 import PrivateRoute from '../components/private-router/Private-route';
 import Payment from '../components/payment/Payment';
 import { AuthProvider } from '../components/context/AuthContext'; // Подключаем провайдер
+import Footer from '../components/footer/Footer';
+import TermsOfService from '../components/footer/Terms';
+import RefundPolicy from '../components/footer/Refund-policy';
 
 const AppRoutes = () => {
   return (
@@ -28,6 +31,8 @@ const AppRoutes = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="/register" element={<Registration />} />
           <Route path="/payment" element={<Payment />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/refund-policy" element={<RefundPolicy />} />
 
           {/* Защищаем страницу личного кабинета */}
           <Route
@@ -40,6 +45,7 @@ const AppRoutes = () => {
           />
         </Routes>
       </div>
+      <Footer/>
     </AuthProvider>
   );
 };
