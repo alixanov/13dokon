@@ -21,6 +21,11 @@
 .footer__links,
 .footer__contacts {
      margin-bottom: 15px;
+     display: flex;
+     align-items: start;
+     justify-content: start;
+     flex-direction: column;
+     gap: 7px;
 }
 
 .footer__links a,
@@ -59,6 +64,12 @@ h4 {
 .footer__contacts p {
      margin: 0;
      font-size: 15px;
+}
+
+.footer__company-info > a {
+font-size: 19px;
+font-weight: 500;
+color: white;
 }
 @media (max-width: 768px) {
      .footer__container {
