@@ -22,10 +22,11 @@ background-color: white;
 
 .main {
   width: 100%;
+  min-height: 100vh;
   padding-inline: 40px;
   padding-top: 3%;
   padding-bottom: 30px;
-      padding-bottom: 100px;
+      /* padding-bottom: 100px; */
         /* Добавляем отступ под футер */
 }
 

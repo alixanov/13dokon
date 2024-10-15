@@ -11,6 +11,7 @@ import HomeIcon from '@mui/icons-material/Home';
 
 const Navbar = () => {
     const [scrollingUp, setScrollingUp] = useState(true);
+    const token = localStorage.getItem("token")
 
     useEffect(() => {
         let lastScrollTop = 0;
@@ -33,16 +34,16 @@ const Navbar = () => {
             <Link to={"/"}>13dokon</Link>
             <div className="navbar__catalog-input">
                 <Link className="navbar__catalog"
-                        to={"/catalog"}
-                    >
-                        <DensityMediumIcon sx={{ color: "white" }} />
-                        <span>Каталог</span>
-                    </Link>
-                   
-           
+                    to={"/catalog"}
+                >
+                    <DensityMediumIcon sx={{ color: "white" }} />
+                    <span>Каталог</span>
+                </Link>
+
+
 
                 <div className="navbar__input-search">
-                    <Input  />
+                    <Input />
                 </div>
             </div>
             <div className="navbar__a-links">
@@ -53,7 +54,7 @@ const Navbar = () => {
 
                 <Link className="navbar__a-link-home"
                     to={"/"}
-                    sx={{display:"block"}}
+                    sx={{ display: "block" }}
                 >
 
                     <HomeIcon sx={{ color: "white" }} />
@@ -81,7 +82,7 @@ const Navbar = () => {
                 </Link>
                 <Link
                     className="navbar__a-link"
-                    to={"/login"}
+                    to={token ? "/cabinet" : "/login"}
                 >
 
                     <PersonIcon sx={{ color: "white" }} />
