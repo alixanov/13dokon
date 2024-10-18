@@ -40,7 +40,7 @@ const Login = () => {
           const data = { login, password };
 
           try {
-               const res = await axios.post("https://13dokon-server.vercel.app/api/users/login", data, {
+               const res = await axios.post("http://localhost:8080/api/users/login", data, {
                     headers: {
                          'Content-Type': 'application/json',
                     }

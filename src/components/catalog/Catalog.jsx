@@ -7,7 +7,7 @@ const Catalog = () => {
   const [selectedType, setSelectedType] = useState(null);
 
   useEffect(() => {
-    fetch('https://13dokon-server.vercel.app/api/getall')
+    fetch('http://localhost:8080/api/getall')
       .then(response => response.json())
       .then(data => setProducts(data))
       .catch(error => console.error('Ошибка:', error));

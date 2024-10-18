@@ -18,7 +18,7 @@ const Product = () => {
 
      // Получаем список продуктов
      useEffect(() => {
-          axios.get('https://13dokon-server.vercel.app/api/getall')
+          axios.get('http://localhost:8080/api/getall')
                .then(response => {
                     setData(response.data);
                })
@@ -47,7 +47,7 @@ const Product = () => {
 
           try {
                // Отправляем товар на сервер
-               const response = await axios.post('https://13dokon-server.vercel.app/api/cart/add', {
+               const response = await axios.post('http://localhost:8080/api/cart/add', {
                     userId, // Используем userId
                     productId: item._id,
                     quantity: 1

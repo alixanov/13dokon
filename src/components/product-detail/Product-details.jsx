@@ -8,7 +8,7 @@ const ProductDetails = () => {
      const [product, setProduct] = useState(null);
 
      useEffect(() => {
-          axios.get(`https://13dokon-server.vercel.app/api/getone/${id}`)
+          axios.get(`http://localhost:8080/api/getone/${id}`)
                .then(response => setProduct(response.data))
                .catch(error => console.error('Ошибка при получении данных:', error));
      }, [id]);

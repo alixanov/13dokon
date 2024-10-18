@@ -14,7 +14,7 @@ const Input = () => {
       const fetchProducts = async () => {
         setIsLoading(true);
         try {
-          const response = await fetch(`https://13dokon-server.vercel.app/api/getall?search=${searchTerm}`);
+          const response = await fetch(`http://localhost:8080/api/getall?search=${searchTerm}`);
           const data = await response.json();
           const filteredData = data.filter(product =>
             product.nomi.toLowerCase().includes(searchTerm.toLowerCase())
