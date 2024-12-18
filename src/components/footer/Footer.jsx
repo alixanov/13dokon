@@ -30,7 +30,10 @@ const Footer = () => {
                     <div className="footer__company-info">
                          <h4>О компании</h4>
                          <p>ООО ALIXANOV-IT GROUP — продажа авторских игрушек ручной работы для детей. Уникальность, качество и внимание к деталям. Широкий ассортимент и доступные условия покупки.</p>                       
-                         <a href={document} download="photo_2023-12-14_18-38-55.jpg" className="download-button">
+                         <a
+                              // href={document} download="photo_2023-12-14_18-38-55.jpg"
+                              className="download-button"
+                         >
                               Скачать документ
                          </a>
                     </div>

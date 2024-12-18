@@ -226,10 +226,10 @@
 /* Адаптивные стили для десктопа */
 @media (min-width: 769px) {
      .navbar__container {
-          position: fixed;
+          /* position: fixed;
           top: 0;
           left: 0;
-          right: 0;
+          right: 0; */
      }
 
 }

@@ -9,7 +9,7 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
-  padding-top: 61px;
+  /* padding-top: 61px; */
 background-color: white;
 }
 

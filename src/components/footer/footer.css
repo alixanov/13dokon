@@ -70,6 +70,7 @@ h4 {
 font-size: 19px;
 font-weight: 500;
 color: white;
+cursor: pointer;
 }
 @media (max-width: 768px) {
      .footer__container {
