@@ -1,14 +1,16 @@
 const SliderData = [
      {
-          img: require("../assets/photo_2024-10-01_21-24-23.jpg")
+          img: require("../assets/Дизайн без названия (1).png")
+     },
+   
+
+     {
+          img: require("../assets/Дизайн без названия (5).png")
      },
      {
-          img: require("../assets/photo_2024-10-01_21-24-27.jpg")
+          img: require("../assets/Дизайн без названия.png")
      }
-     ,
-     {
-          img: require("../assets/photo_2024-10-01_21-24-30.jpg")
-     }
+
      
   
 ]
