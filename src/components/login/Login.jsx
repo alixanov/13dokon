@@ -2,32 +2,26 @@ import React, { useState } from 'react';
 import "../login/login.css";
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Swal from 'sweetalert2'; // SweetAlert2 import
-import { jwtDecode } from 'jwt-decode'; // Импортируем jwtDecode
-import "./login.css"
+import { message } from 'antd'; // Импортируем уведомления из Ant Design
+import {jwtDecode} from 'jwt-decode'; // Импортируем jwtDecode
+import "./login.css";
 
 const Login = () => {
      const [login, setLogin] = useState('');
      const [password, setPassword] = useState('');
      const navigate = useNavigate();
 
-     const notifySuccess = (message) => {
-          Swal.fire({
-               icon: 'success',
-               title: 'Успех!',
-               text: message,
-               timer: 3000,
-               showConfirmButton: false,
+     const notifySuccess = (messageText) => {
+          message.success({
+               content: messageText,
+               duration: 3,
           });
      };
 
-     const notifyError = (message) => {
-          Swal.fire({
-               icon: 'error',
-               title: 'Ошибка!',
-               text: message,
-               timer: 3000,
-               showConfirmButton: false,
+     const notifyError = (messageText) => {
+          message.error({
+               content: messageText,
+               duration: 3,
           });
      };
 
@@ -54,13 +48,11 @@ const Login = () => {
 
                // Сохраняем токен, userLogin и userId
                localStorage.setItem("token", token);
-               localStorage.setItem("userLogin", login); // Сохраняем логин пользователя
-               localStorage.setItem("userId", userId); // Сохраняем userId
+               localStorage.setItem("userLogin", login);
+               localStorage.setItem("userId", userId);
 
-               // Показываем уведомление перед навигацией
+               // Показываем уведомление и сразу переходим в кабинет пользователя
                notifySuccess("Вы успешно вошли в систему!");
-
-               // Переход в кабинет пользователя
                navigate('/cabinet');
           } catch (error) {
                console.error("Ошибка:", error.response?.data || error.message);

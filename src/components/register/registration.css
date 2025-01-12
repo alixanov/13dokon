@@ -1,5 +1,5 @@
 .registration__container {
-     height: 70vh;     display: flex;
+     height: 90vh;     display: flex;
      align-items: center;
      justify-content: center;
      flex-direction: column;
@@ -77,3 +77,4 @@
      text-align: center;
      /* Центрирование текста */
 }
+

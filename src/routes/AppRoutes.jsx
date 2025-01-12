@@ -1,6 +1,6 @@
 // src/AppRoutes.js
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from "../components/navbar/Navbar";
 import Home from '../components/home/Home';
 import Catalog from "../components/catalog/Catalog";
@@ -18,18 +18,21 @@ import TermsOfService from '../components/footer/Terms';
 import RefundPolicy from '../components/footer/Refund-policy';
 
 const AppRoutes = () => {
+  const location = useLocation();
+  const hideNavFooterRoutes = ["/login", "/register"];
+
   return (
     <AuthProvider>
-      <Navbar />
+      {!hideNavFooterRoutes.includes(location.pathname) && <Navbar />}
       <div className="main">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/product" element={<Product />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Registration />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/register" element={<Registration />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/refund-policy" element={<RefundPolicy />} />
@@ -45,7 +48,7 @@ const AppRoutes = () => {
           />
         </Routes>
       </div>
-      <Footer/>
+      {!hideNavFooterRoutes.includes(location.pathname) && <Footer />}
     </AuthProvider>
   );
 };
