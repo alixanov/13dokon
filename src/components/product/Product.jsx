@@ -2,9 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import LocalMallIcon from '@mui/icons-material/LocalMall';
-import Snackbar from '@mui/material/Snackbar';
-import Alert from '@mui/material/Alert';
+import { message } from 'antd'; // Импортируем уведомления из Ant Design
 import "./product.css";
+
+// Настраиваем позицию уведомлений
+message.config({
+     top: document.documentElement.clientHeight - 60, // Высота экрана минус высота уведомления
+     duration: 3,
+     maxCount: 1,
+     rtl: false,
+     getContainer: () => document.body,
+});
 
 const Product = () => {
      const [data, setData] = useState([]);
@@ -13,7 +21,6 @@ const Product = () => {
           const savedCart = localStorage.getItem('cart');
           return savedCart ? JSON.parse(savedCart) : [];
      });
-     const [notification, setNotification] = useState({ open: false, message: '' });
 
      useEffect(() => {
           axios.get('https://13dokon-server.vercel.app/api/getall')
@@ -33,7 +40,11 @@ const Product = () => {
           const userId = localStorage.getItem('userId');
 
           if (!userId) {
-               setNotification({ open: true, message: "Пожалуйста, выполните вход." });
+               message.error({
+                    content: "Пожалуйста, выполните вход.",
+                    duration: 3,
+                    style: { marginBottom: '20px', right: '10px', position: 'fixed' }
+               });
                navigate('/login');
                return;
           }
@@ -52,17 +63,19 @@ const Product = () => {
                     }
                });
 
-               setNotification({ open: true, message: `${item.nomi} добавлен в корзину!` });
+               message.success({
+                    content: `${item.nomi} добавлен в корзину!`,
+                    duration: 3,
+                    style: { marginBottom: '20px', right: '10px', position: 'fixed' }
+               });
           } catch (error) {
                console.error("Ошибка при добавлении товара в корзину:", error);
-               setNotification({ open: true, message: `Ошибка при добавлении ${item.nomi} в корзину.` });
+               message.error({
+                    content: `Ошибка при добавлении ${item.nomi} в корзину.`,
+                    duration: 3,
+                    style: { marginBottom: '20px', right: '10px', position: 'fixed' }
+               });
           }
-
-          navigate("/");
-     };
-
-     const handleCloseNotification = () => {
-          setNotification({ ...notification, open: false });
      };
 
      return (
@@ -83,8 +96,8 @@ const Product = () => {
                                                   className="product__cart-icon"
                                                   sx={{
                                                        fontSize: {
-                                                            xs: '15px',  // for screens 480px and smaller
-                                                            sm: '20px'  // for screens larger than 480px
+                                                            xs: '15px',  // для экранов 480px и меньше
+                                                            sm: '20px'  // для экранов больше 480px
                                                        }
                                                   }}
                                              /> В корзину
@@ -95,12 +108,6 @@ const Product = () => {
                          </div>
                     ))}
                </div>
-
-               <Snackbar open={notification.open} autoHideDuration={3000} onClose={handleCloseNotification}>
-                    <Alert onClose={handleCloseNotification} severity="success" sx={{ width: '100%' }}>
-                         {notification.message}
-                    </Alert>
-               </Snackbar>
           </div>
      );
 };
