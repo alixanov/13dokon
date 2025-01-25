@@ -9,38 +9,49 @@
      width: 25%;
      background-color: #fff;
      border-radius: 8px;
+     padding: 15px;
 }
 
 .catalog__left-card ul {
      list-style-type: none;
+     padding: 0;
 }
 
 .catalog__left-card li {
+     display: flex;
+     align-items: center;
      padding: 10px;
      margin-bottom: 10px;
      cursor: pointer;
      font-size: 16px;
      color: #555;
-border: 1px solid darkred;
-     transition: border-color 0.3s ease;     border-radius: 4px;
-     transition: background-color 0.3s ease, color 0.3s ease;
+     border: 1px solid darkred;
+     border-radius: 4px;
+     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.catalog__left-card li img.type-icon {
+     width: 24px;
+     height: 24px;
+     margin-right: 10px;
 }
 
 .catalog__left-card li.active,
 .catalog__left-card li:hover {
-     background-color:darkred;
+     background-color: darkred;
      color: white;
 }
 
 .catalog__right-card {
      width: 70%;
-     /* padding: 20px; */
      background-color: #fff;
      border-radius: 8px;
+     padding: 15px;
 }
 
 .catalog__right-card ul {
      list-style-type: none;
+     padding: 0;
 }
 
 .catalog__right-card li {
@@ -53,6 +64,8 @@ border: 1px solid darkred;
 }
 
 .catalog__right-card li a {
+     display: flex;
+     align-items: center;
      text-decoration: none;
      color: #333;
      transition: color 0.3s ease;
@@ -64,6 +77,14 @@ border: 1px solid darkred;
 
 .catalog__right-card li:hover {
      background-color: #f0f0f0;
+}
+
+.product-icon {
+     width: 40px;
+     height: 40px;
+     object-fit: cover;
+     border-radius: 50%;
+     margin-right: 10px;
 }
 
 /* Адаптация для планшетов (от 768px до 1024px) */
@@ -83,14 +104,12 @@ border: 1px solid darkred;
 @media (max-width: 768px) {
      .catalog__container {
           flex-direction: column;
-          /* padding: 10px; */
           gap: 10px;
      }
 
      .catalog__left-card,
      .catalog__right-card {
           width: 100%;
-          /* padding: 15px; */
      }
 
      .catalog__left-card li,
@@ -107,11 +126,8 @@ border: 1px solid darkred;
 /* Адаптация для экранов меньшего размера (до 480px) */
 @media (max-width: 480px) {
      .catalog__container {
-          /* padding: 5px; */
           gap: 5px;
      }
-
-   
 
      .catalog__left-card li,
      .catalog__right-card li {

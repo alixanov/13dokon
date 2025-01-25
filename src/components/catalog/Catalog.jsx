@@ -19,6 +19,11 @@ const Catalog = () => {
 
   const productTypes = [...new Set(products.map(product => product.turi))];
 
+  const getIconForType = (type) => {
+    const product = products.find(product => product.turi === type);
+    return product ? product.icon : '';
+  };
+
   const filteredProducts = selectedType
     ? products.filter(product => product.turi === selectedType)
     : products;
@@ -33,6 +38,7 @@ const Catalog = () => {
               onClick={() => setSelectedType(type)}
               className={selectedType === type ? 'active' : ''}
             >
+              <img src={getIconForType(type)} alt={type} className="type-icon" />
               {capitalizeFirstLetter(type)}
             </li>
           ))}
@@ -43,7 +49,7 @@ const Catalog = () => {
         <ul>
           {filteredProducts.map(product => (
             <li key={product._id}>
-              <Link to={`/product/${product._id}`}>
+              <Link to={`/product/${product._id}`} className="product-link">
                 {capitalizeFirstLetter(product.nomi)}
               </Link>
             </li>
