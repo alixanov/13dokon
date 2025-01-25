@@ -103,6 +103,8 @@
      background-color: #f1f3f5;
      border-radius: 10px;
 box-shadow: 0 1px 4px rgba(139, 0, 0, 0.096);
+     height: auto;
+
 }
 
 .cart__controls>button {
@@ -144,6 +146,23 @@ box-shadow: 0 1px 4px rgba(139, 0, 0, 0.096);
      background-color: #0d8265;
 }
 
+.cart__summary-items {
+     display: flex;
+     flex-direction: column;
+     margin-bottom: 20px;
+}
+
+.cart__summary-item {
+     display: flex;
+     justify-content: space-between;
+     margin-bottom: 10px;
+}
+
+.cart__summary-total {
+     font-size: 22px;
+     font-weight: 500;
+     margin-bottom: 20px;
+}
 /* Адаптивность для планшетов и мобильных устройств */
 @media (max-width: 768px) {
      .cart__container>h2 {

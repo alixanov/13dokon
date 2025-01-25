@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import './payemnt.css';
+import { useNavigate } from 'react-router-dom';
+import './payment.css';
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 
 const Payment = () => {
+     const navigate = useNavigate();
      const [cardNumber, setCardNumber] = useState('');
      const [expiryDate, setExpiryDate] = useState('');
      const [cvc, setCvc] = useState('');
@@ -13,6 +16,7 @@ const Payment = () => {
                setTotalPrice(storedTotalPrice);
           }
      }, []);
+
 
      const handleCardNumberChange = (e) => {
           const value = e.target.value.replace(/\D/g, '');
@@ -35,8 +39,16 @@ const Payment = () => {
           }
      };
 
+     const handleBackClick = () => {
+          navigate(-1); // Это вернет пользователя на предыдущую страницу
+     };
+
      return (
           <div className="payment-container">
+               <button className="back-button" onClick={handleBackClick}>
+                    <KeyboardArrowLeftIcon />
+               </button>
+
                <p className="payment-summary">Итого к оплате: {totalPrice} $</p>
 
                <form className="payment-form">

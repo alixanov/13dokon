@@ -19,7 +19,9 @@ import RefundPolicy from '../components/footer/Refund-policy';
 
 const AppRoutes = () => {
   const location = useLocation();
-  const hideNavFooterRoutes = ["/login", "/register"];
+
+  // Добавили "/payment" в массив маршрутов, где нужно скрывать Navbar и Footer
+  const hideNavFooterRoutes = ["/login", "/register", "/payment"];
 
   return (
     <AuthProvider>

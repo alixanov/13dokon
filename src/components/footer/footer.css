@@ -40,10 +40,9 @@
 }
 
 .footer__links a:hover,
-.footer__social-media a:hover,
-.footer__contacts > a 
+.footer__social-media a:hover
 {
-     color: gray;
+     color: rgb(255, 170, 170);;
      /* Цвет выделения при наведении */
 }
 
@@ -61,7 +60,7 @@ h4 {
      gap: 10px;
 }
 
-.footer__contacts p {
+.footer__contacts a {
      margin: 0;
      font-size: 15px;
 }

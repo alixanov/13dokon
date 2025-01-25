@@ -83,9 +83,12 @@ const Product = () => {
                <div className='product__container'>
                     {data.map((item) => (
                          <div className="product__card" key={item._id}>
-                              <div className="product__image-container">
-                                   <img src={item.rasm} alt={item.nomi} className="product-image" />
-                              </div>
+                              {/* Оборачиваем изображение в Link, чтобы сделать его кликабельным */}
+                              <Link to={`/product/${item._id}`}>
+                                   <div className="product__image-container">
+                                        <img src={item.rasm} alt={item.nomi} className="product-image" />
+                                   </div>
+                              </Link>
                               <div className="product__info">
                                    <h3 className="product__name">{item.nomi}</h3>
                                    <p className="product__quantity">В наличии: {item.soni} шт.</p>
@@ -96,12 +99,13 @@ const Product = () => {
                                                   className="product__cart-icon"
                                                   sx={{
                                                        fontSize: {
-                                                            xs: '15px',  // для экранов 480px и меньше
-                                                            sm: '20px'  // для экранов больше 480px
+                                                            xs: '14px',  // для экранов 480px и меньше
+                                                            sm: '19px'  // для экранов больше 480px
                                                        }
                                                   }}
                                              /> В корзину
                                         </button>
+                                        {/* Кнопка "Подробнее" для перехода к деталям */}
                                         <Link to={`/product/${item._id}`} className="product__details-link">Подробнее</Link>
                                    </div>
                               </div>
